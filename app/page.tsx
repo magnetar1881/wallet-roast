@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { Wallet } from "@coinbase/onchainkit/wallet";
-import { useAccount } from "wagmi";
+import { useAccount, useBalance } from "wagmi";
 
 export default function Home() {
   const { address, isConnected } = useAccount();
+  const { data: balance } = useBalance({
+    address,
+  });
 
   const [result, setResult] = useState<any>(null);
 
@@ -17,6 +20,12 @@ export default function Home() {
 
     setResult({
       address,
+      shortAddress:
+        address?.slice(0, 6) +
+        "..." +
+        address?.slice(-4),
+      balance: balance?.formatted,
+      symbol: balance?.symbol,
       walletType: "DeFi Degenerate 🎰",
       walletAge: "1.8 Years",
       txCount: 154,
@@ -65,6 +74,10 @@ export default function Home() {
           <h2>{result.walletType}</h2>
 
           <p>Address: {result.address}</p>
+
+          <p>Address: {result.shortAddress}</p>
+
+          <p>Balance: {result.balance} {result.symbol}</p>
 
           <p>Wallet Age: {result.walletAge}</p>
 
