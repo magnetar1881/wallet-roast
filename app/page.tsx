@@ -10,7 +10,18 @@ export default function Home() {
     address,
   });
 
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    address?: string;
+    shortAddress?: string;
+    balance?: string;
+    symbol?: string;
+    walletType: string;
+    walletAge: string;
+    txCount: number;
+    favoriteToken: string;
+    favoriteApp: string;
+    roast: string;
+  } | null>(null);
 
   const analyzeWallet = () => {
     if (!isConnected) {
