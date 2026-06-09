@@ -29,6 +29,29 @@ export default function Home() {
       return;
     }
 
+    const balanceNum = Number(balance?.formatted || 0);
+
+    let walletType = "";
+    let roast = "";
+
+    if (balanceNum === 0) {
+      walletType = "Ghost Wallet 👻";
+      roast =
+        "You connected a wallet, but forgot to put anything in it.";
+    } else if (balanceNum < 0.1) {
+      walletType = "Airdrop Hunter 🪂";
+      roast =
+        "You are farming every possible airdrop.";
+    } else if (balanceNum < 1) {
+      walletType = "DeFi Explorer 🚀";
+      roast =
+        "Always testing protocols, rarely touching grass.";
+    } else {
+      walletType = "Whale 🐋";
+      roast =
+        "Your wallet balance enters the room before you do.";
+    }
+
     setResult({
       address,
       shortAddress:
@@ -37,12 +60,12 @@ export default function Home() {
         address?.slice(-4),
       balance: balance?.formatted,
       symbol: balance?.symbol,
-      walletType: "DeFi Degenerate 🎰",
+      walletType,
       walletAge: "1.8 Years",
       txCount: 154,
       favoriteToken: "ETH",
       favoriteApp: "Uniswap",
-      roast: "You discovered DeFi and never looked back.",
+      roast,
     });
   };
 
@@ -83,8 +106,6 @@ export default function Home() {
           }}
         >
           <h2>{result.walletType}</h2>
-
-          <p>Address: {result.address}</p>
 
           <p>Address: {result.shortAddress}</p>
 

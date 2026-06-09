@@ -1,0 +1,26 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "Wallet Roast",
+    "homeUrl": "https://wallet-roast-ruby.vercel.app",
+    "iconUrl": "https://wallet-roast-ruby.vercel.app/icon.png",
+    "splashImageUrl": "https://wallet-roast-ruby.vercel.app/icon.png",
+    "splashBackgroundColor": "#0052FF",
+    "subtitle": "Roast your wallet",
+    "description": "Connect your wallet and discover your onchain personality.",
+    "primaryCategory": "entertainment",
+    "tags": ["wallet", "roast", "base"],
+    "tagline": "What's your wallet type?",
+    "heroImageUrl": "https://wallet-roast-ruby.vercel.app/hero.png",
+    "screenshotUrls": [],
+    "ogTitle": "Wallet Roast",
+    "ogDescription": "Discover your onchain personality.",
+    "ogImageUrl": "https://wallet-roast-ruby.vercel.app/hero.png",
+    "noindex": true
+  }
+}
